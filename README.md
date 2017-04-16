@@ -1,2 +1,0 @@
-# PainterlyCat
-imp project

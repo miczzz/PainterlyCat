@@ -8,27 +8,28 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    private float speed = 1.5f;
+    public float fullSpeed = 2.5f;
+    public float speed = 2f;
+    private float reducedSpeed;
     public Transform playergraphic;
 
-    void Update()
+    void FixedUpdate()
     {
         Movement();
     }
 
     void Movement()
     {
-
         //Player object movement
         float horMovement = Input.GetAxisRaw("Horizontal");
         float vertMovement = Input.GetAxisRaw("Vertical");
         if (horMovement != 0 && vertMovement != 0)
         {
-            speed = 1.0f;
+            speed = fullSpeed * 0.8f;
         }
         else
         {
-            speed = 1.5f;
+            speed = fullSpeed;
         }
         transform.Translate(transform.right * horMovement * Time.deltaTime * speed);
         transform.Translate(transform.forward * vertMovement * Time.deltaTime * speed);

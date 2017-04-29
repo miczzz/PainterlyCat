@@ -5,7 +5,9 @@ using UnityEngine;
 public class ShootScript : MonoBehaviour {
     public GameObject projectile;
     public Transform projectileSpawnPoint;
+    public Camera cam;
 
+    public Crosshairs crosshairs;
 
     private void Awake()
     {
@@ -13,14 +15,35 @@ public class ShootScript : MonoBehaviour {
         //projectileSpawner.transform.parent = transform;
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () { 
-                 if (Input.GetButtonDown("Fire1"))  {
+    void Start()
+    {
+        cam = FindObjectOfType<Camera>();
+        crosshairs = FindObjectOfType<Crosshairs>();
+
+
+    }
+
+    // Update is called once per frame
+    void FixedUpdate () {
+
+        float rayDistance;
+        // test for shooting direction
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        Plane plane = new Plane(Vector3.up, Vector3.up);
+        if (plane.Raycast(ray, out rayDistance))
+        {
+            Vector3 point = ray.GetPoint(rayDistance);
+            Debug.DrawLine(ray.origin, point, Color.red);
+
+            crosshairs.transform.position = point;
+            //crosshairs.DetectTargets(ray);
+
+            transform.LookAt(point);
+
+        }
+
+
+        if (Input.GetButtonDown("Fire1"))  {
 
             // Bullet wird bei "Fire1" Knopfdruck erschaffen, Bewegung siehe Script Paintball
             GameObject bullet = Instantiate(projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation);

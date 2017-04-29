@@ -22,6 +22,7 @@ public class CompleteCameraController : MonoBehaviour
 
     private void Update()
     {
+        //test
         if (Input.GetKeyDown("p"))
         {
             Debug.Log("Peepee!");
@@ -38,7 +39,7 @@ public class CompleteCameraController : MonoBehaviour
         // transform.position = player.transform.root.position + offset;
         //transform.position = Vector3.Lerp(transform.position, player.transform.position + offset, cam_speed * Time.deltaTime);
 
-            transform.position = player.position + offset;
+            //transform.position = player.position + offset;
 
 
     }

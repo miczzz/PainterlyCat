@@ -12,10 +12,13 @@ public class Player : MonoBehaviour
     public float speed = 2f;
     private float reducedSpeed;
     public Transform playergraphic;
+    public Camera cam;
+
 
     void FixedUpdate()
     {
         Movement();
+
     }
 
     void Movement()
@@ -31,8 +34,10 @@ public class Player : MonoBehaviour
         {
             speed = fullSpeed;
         }
-        transform.Translate(transform.right * horMovement * Time.deltaTime * speed);
-        transform.Translate(transform.forward * vertMovement * Time.deltaTime * speed);
+        
+        transform.Translate(transform.right * horMovement * Time.deltaTime * speed, Space.World);
+        transform.Translate(transform.forward * vertMovement * Time.deltaTime * speed, Space.World);
+
 
         //Player graphic rotation
         Vector3 moveDirection = new Vector3(horMovement, 0, vertMovement);
@@ -44,5 +49,22 @@ public class Player : MonoBehaviour
             // instant turn of the head when 1 instead of "Time.deltaTime * 8"
 
         }
+
     }
+
+    //void OnCollisionEnter(Collision col)
+    //{
+
+    //    Debug.Log("Well, hello there.");
+
+    //}
+
+    void OnTriggerEnter(Collider col)
+    {
+
+        Debug.Log("Well, hello there.");
+
+    }
+
+
 }

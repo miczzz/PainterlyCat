@@ -17,6 +17,7 @@ public class BulletChanger : MonoBehaviour {
 		
 	}
 
+    // Der Paintball ändert die Farbe, wenn der Player die neue Farbe aufnimmt
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag.Equals("Player"))

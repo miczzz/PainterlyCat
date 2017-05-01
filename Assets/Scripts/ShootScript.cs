@@ -6,6 +6,7 @@ public class ShootScript : MonoBehaviour {
     public GameObject projectile;
     public Transform projectileSpawnPoint;
     public Camera cam;
+    public GameObject brush;
 
     public Crosshairs crosshairs;
 
@@ -37,9 +38,9 @@ public class ShootScript : MonoBehaviour {
 
             crosshairs.transform.position = point;
             //crosshairs.DetectTargets(ray);
-
             transform.LookAt(point);
-
+            brush.transform.LookAt(point);
+            projectileSpawnPoint.transform.LookAt(point);
         }
 
 

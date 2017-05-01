@@ -6,6 +6,7 @@ public class BulletChanger : MonoBehaviour {
 
     public GameObject bullet;
     public Material newBulletColor;
+    public GameObject brushhead;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +25,7 @@ public class BulletChanger : MonoBehaviour {
         {
             Debug.Log("The bullet changes its color!");
             bullet.GetComponent<Renderer>().material = newBulletColor;
+            brushhead.GetComponent<Renderer>().material = newBulletColor;
         }
 
     }

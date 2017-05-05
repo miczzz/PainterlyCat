@@ -9,7 +9,8 @@ public class PlayerMovementScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// make cursor invisble and cursor cant go outside screen
-		//Cursor.lockState = CursorLockMode.Locked;
+		// press escape to show cursor 
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 	
 	// Update is called once per frame
@@ -22,11 +23,11 @@ public class PlayerMovementScript : MonoBehaviour {
 
 		transform.Translate (horizonzal, 0, vertical);
 
-		/*
+	
 		if (Input.GetKeyDown ("escape")) {
 			Cursor.lockState = CursorLockMode.None;
 		}
-		*/
+	
 
 	}
 }

@@ -1180,6 +1180,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1447782547258402, guid: 3ce8e72318eaff648880495be38be381, type: 2}
   projectileSpawnPoint: {fileID: 4623873266326834}
+  cam: {fileID: 0}
+  brush: {fileID: 0}
+  crosshairs: {fileID: 0}
 --- !u!114 &114164340174004524
 MonoBehaviour:
   m_ObjectHideFlags: 1

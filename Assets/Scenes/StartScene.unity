@@ -450,7 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df72b0e41b3a1d04ea92b5af25ccdd69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1045531068}
+  player: {fileID: 217595324}
   offset: {x: 0, y: 5, z: 3}
 --- !u!114 &608275897
 MonoBehaviour:
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam_speed: 1
-  player: {fileID: 1045531068}
+  player: {fileID: 217595324}
   gameCam: {fileID: 608275890}
 --- !u!1 &958932733
 GameObject:
@@ -709,11 +709,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5922743e9b4b54e4c8463f507129f607, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1045531068 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4447123202614536, guid: 5922743e9b4b54e4c8463f507129f607,
-    type: 2}
-  m_PrefabInternal: {fileID: 1012310875}
 --- !u!1 &1046383486
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class ShootScript : MonoBehaviour {
     public GameObject brush;
 
     public Crosshairs crosshairs;
+    private Vector3 point;
 
     private void Awake()
     {
@@ -33,24 +34,30 @@ public class ShootScript : MonoBehaviour {
         Plane plane = new Plane(Vector3.up, Vector3.up);
         if (plane.Raycast(ray, out rayDistance))
         {
-            Vector3 point = ray.GetPoint(rayDistance);
+            point = ray.GetPoint(rayDistance);
             Debug.DrawLine(ray.origin, point, Color.red);
 
             crosshairs.transform.position = point;
             //crosshairs.DetectTargets(ray);
-            transform.LookAt(point);
+            //transform.LookAt(point);
             brush.transform.LookAt(point);
             projectileSpawnPoint.transform.LookAt(point);
         }
 
 
+        // linker Mousebutton = Fire1
         if (Input.GetButtonDown("Fire1"))  {
-
+            //beim Schießen in die Richtung schauen
+         
+            // falls die Katze sich beim Schießen in Schießrichtung drehen soll
+            //transform.LookAt(point);
             // Bullet wird bei "Fire1" Knopfdruck erschaffen, Bewegung siehe Script Paintball
             GameObject bullet = Instantiate(projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
 
         }
-        }
+
+
+    }
 }
 
 

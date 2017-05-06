@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: 0.1
-  lifeTicks: 80
+  lifeTicks: 200
   cam: {fileID: 0}
   crosshairs: {fileID: 0}
 --- !u!135 &135688852372486650

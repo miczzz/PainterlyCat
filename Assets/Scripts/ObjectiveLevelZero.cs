@@ -33,10 +33,6 @@ public class ObjectiveLevelZero : MonoBehaviour {
             obj2Color = object2.GetComponent<Renderer>().material;
             obj3Color = object3.GetComponent<Renderer>().material;
 
-            Debug.Log(obj1Color.color == object1WantedColor.color);
-            Debug.Log(obj2Color.color == object2WantedColor.color);
-            Debug.Log(obj3Color.color == object3WantedColor.color);
-
             if (obj1Color.color == object1WantedColor.color &&
                 obj2Color.color == object2WantedColor.color &&
                 obj3Color.color == object3WantedColor.color)

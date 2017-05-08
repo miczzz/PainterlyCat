@@ -84,13 +84,15 @@ public class ShootScriptMP : NetworkBehaviour
     [Command]
     void CmdFire()
     {
-       // bringt nix projectileSpawnPoint.transform.LookAt(point);
+        // Paintball wird erstellt
         GameObject bullet = Instantiate(projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation) as GameObject;
+        
         //bullet.transform.Translate(Vector3.forward * movement);
         Debug.Log(projectileSpawnPoint.position);
         Debug.Log(projectileSpawnPoint.rotation);
         Debug.Log("Hallo?!");
         NetworkServer.Spawn(bullet);
+        
     }
 }
 

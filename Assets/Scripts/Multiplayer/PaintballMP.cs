@@ -63,6 +63,14 @@ public class PaintballMP : NetworkBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Collision detected");
+        // Wenn der Player vom Bullet getroffen wird, wird Schaden von Health abgezogen
+        GameObject hit = collision.gameObject;
+        HealthMP health = hit.GetComponent<HealthMP>();
+        if(health!= null)
+        {
+            health.TakeDamage(1);
+        }
         // Bei Berührung stirbt Bullet
         Destroy(gameObject);
     }

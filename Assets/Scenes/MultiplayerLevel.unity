@@ -1359,6 +1359,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 19
       objectReference: {fileID: 0}
+    - target: {fileID: 54283234706376848, guid: 59f66809a88c2974782fce40254bc882,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232130560580416, guid: 59f66809a88c2974782fce40254bc882, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114773512778320676, guid: 59f66809a88c2974782fce40254bc882,
+        type: 2}
+      propertyPath: m_SendInterval
+      value: 0.03448276
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 59f66809a88c2974782fce40254bc882, type: 2}
   m_IsPrefabParent: 0

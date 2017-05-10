@@ -1427,7 +1427,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 7bc0a7e45a1ae944dafa8143fa68bf75, type: 2}
   - {fileID: 2100000, guid: 4e22382374644ed4e9c0670766d708d4, type: 2}
   cameraOffset: {x: 0, y: 5, z: 3}
-  mainCamera: {fileID: 4364903193679986, guid: f2d4e2bbf5fd7a44b823570e75214882, type: 2}
+  mainCamera: {fileID: 0}
+  noOfPlayers: []
 --- !u!114 &114195401885682768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1519,6 +1520,7 @@ MonoBehaviour:
   bulletColor: {fileID: 0}
   crosshairs: {fileID: 114684334038777954, guid: e7798dcedef7890469886688d765d2b7,
     type: 2}
+  bulletColorVector4: {x: 0, y: 0, z: 0, w: 0}
   movement: 0.14
 --- !u!114 &114587010339824814
 MonoBehaviour:
@@ -1537,7 +1539,11 @@ MonoBehaviour:
     type: 2}
   deathEffect: {fileID: 198958100594621524, guid: d61a71e6d94ef83459173c0051d9ceca,
     type: 2}
-  playerBodyColor: {r: 0, g: 0, b: 0, a: 0}
+  newColors:
+  - {fileID: 2100000, guid: 0f5ccd902666a094e8f29de9c411f02a, type: 2}
+  - {fileID: 2100000, guid: d940fcfb535088b41ad95341e93a1d4e, type: 2}
+  - {fileID: 2100000, guid: 4e22382374644ed4e9c0670766d708d4, type: 2}
+  - {fileID: 2100000, guid: 7bc0a7e45a1ae944dafa8143fa68bf75, type: 2}
 --- !u!114 &114711899907927902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1618,7 +1624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8173b1166e77ed46b71620b9eacc7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 2.8
+  walkSpeed: 4.8
   runSpeed: 6
   turnSmoothTime: 0.2
   speedSmoothTime: 0.1

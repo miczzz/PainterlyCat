@@ -12,9 +12,10 @@ public class HealthMP : NetworkBehaviour {
     public RectTransform healthbar;
     public ParticleSystem winningFanfare;
     public ParticleSystem deathEffect;
-    [SyncVar (hook = "OnChangeBodyColor")]public Color playerBodyColor;
-    
-    
+
+    public Material[] newColors;
+
+
     public void TakeDamage(int amount, Color bulletColor, Color playerColor)
     {
         // let the server handle this!
@@ -27,6 +28,7 @@ public class HealthMP : NetworkBehaviour {
         {
             currentHealth -= amount;
             Debug.Log("It's a match!");
+            CmdChangeBodyColor();
         }
         else
         {
@@ -48,18 +50,48 @@ public class HealthMP : NetworkBehaviour {
 
     void OnChangeHealth(int health)
     {
-        // health * x = size of Foreground width (hier 100, also 20 bei maxHealth5)
+        // health * x = size of Foreground[Grafik des Balken] width (hier 100, also 20 bei maxHealth5)
         healthbar.sizeDelta = new Vector2(health * 20, healthbar.sizeDelta.y);
         //currentHealth = health;
     }
 
-    void OnChangeBodyColor(Color color)
+    //Server ändert die Farbe des getroffenen Players
+    [Command]
+    void CmdChangeBodyColor()
     {
+            int newColorNo = (int)Random.Range(0.01f, 3.99f);
+
+            Debug.Log(newColorNo);
+        // Farbe des Players setzen (am besten einmal in einer anderen Klasse)
+
+            Color playerBodyColor = transform.Find("PlayerBody").GetComponent<Renderer>().material.color;
+
+        // Damit die Farbe immer eine andere ist und nicht gleich bleibt (vielleicht soll es aber doch die Option geben, noch unklar)
+            while (playerBodyColor.Equals(newColors[newColorNo].color)){
+            newColorNo = (int)Random.Range(0.01f, 3.99f);
+             }
+
+            transform.Find("PlayerBody").GetComponent<Renderer>().material = newColors[newColorNo];
+            RpcSetPlayerColors(newColorNo);
 
     }
 
-	// Use this for initialization
-	void Start () {
+    //Client übernimmt die Änderungen des Servers (ja ich bin auch der Meinung das müsste doch zusammengehen lol)
+    [ClientRpc]
+    void RpcSetPlayerColors(int colorNo)
+    {
+        // Wurden vom Server schon gesetzt
+        if (isServer)
+        {
+            return;
+        }
+
+        // Nur für den Client
+        transform.Find("PlayerBody").GetComponent<Renderer>().material = newColors[colorNo];
+    }
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	

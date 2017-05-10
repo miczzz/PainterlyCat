@@ -50,7 +50,7 @@ public class MPPlayer : NetworkBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        // Damit das SPiel erst beginnt, wenn es (min?) 2 Spieler gibt
+        // Damit das Spiel erst beginnt, wenn es (min?) 2 Spieler gibt
         if (!isServer)
         {
             return;
@@ -83,7 +83,7 @@ public class MPPlayer : NetworkBehaviour {
         int startColorNo = (int)Random.Range(0.01f, 3.99f);
         Debug.Log(startColorNo);
 
-        // Startfarbe des Players setzen ***MUSS NOCH AUF DEM SERVER GEMACHT WERDEN - am besten einmal in einer anderen Klasse***
+        // Startfarbe des Players setzen (am besten einmal in einer anderen Klasse)
 
         transform.Find("PlayerBody").GetComponent<Renderer>().material = startingColors[startColorNo];
         RpcSetPlayerColors(startColorNo);

@@ -25,10 +25,16 @@ public class BulletChangerMP : NetworkBehaviour {
     {
         if (other.tag.Equals("Player"))
         {
+            
             Debug.Log("The bullet changes its color!");
+            // Der Umweg über den Brush zum brushhead, da das Prefab als 2nd tier child verschachtelt ist (seufz)
+            GameObject brush = other.transform.Find("mylittlebrushcolored").gameObject;
+            brush.transform.Find("Brushhead").GetComponent<Renderer>().material = newBulletColor;
+            Debug.Log(brush.transform.Find("Brushhead"));
+           // other.transform.Find("ShootScript").GetComponent<Renderer>().material = newBulletColor;
             bullet.GetComponent<Renderer>().material = newBulletColor;
             brushhead.GetComponent<Renderer>().material = newBulletColor;
-            CmdChangeBodyColor();
+
 
             // Für später wenn die Farben geändert werden nachdem man getroffen wurde und am Anfang
             other.transform.Find("PlayerBody").GetComponent<Renderer>().material = newBulletColor;
@@ -37,11 +43,5 @@ public class BulletChangerMP : NetworkBehaviour {
 
     }
 
-    [Command]
-    private void CmdChangeBodyColor()
-    {
-       // playerBody.GetComponent<Renderer>().material = newBulletColor;
-
-    }
 
 }

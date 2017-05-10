@@ -11,18 +11,13 @@ public class ShootScriptMP : NetworkBehaviour
 
     public Camera cam;
     public GameObject brush;
+    public Material bulletColor;
 
     public Crosshairs crosshairs;
     private Vector3 point;
 
+    public Vector4 bulletColorVector4;
     public float movement = 100.14f;
-
-    private void Awake()
-    {
-        //        GameObject projectileSpawner = Instantiate(projectileSpawnPoint) as GameObject;
-   
-        //projectileSpawner.transform.parent = transform;
-    }
 
     void Start()
     {
@@ -33,10 +28,6 @@ public class ShootScriptMP : NetworkBehaviour
         }
         cam = FindObjectOfType<Camera>();
         crosshairs = FindObjectOfType<Crosshairs>();
-
-        //crosshairs = Instantiate(crosshairs);
-        //
-
 
     }
 
@@ -73,24 +64,31 @@ public class ShootScriptMP : NetworkBehaviour
 
             // falls die Katze sich beim Schießen in Schießrichtung drehen soll
             //transform.LookAt(point);
+
+            // Paintballfarbe wird vom Brushhead übernommen
+            bulletColor = brush.transform.Find("Brushhead").GetComponent<Renderer>().material;
+            projectile.GetComponent<Renderer>().material = bulletColor;
+
+            // Vector4, da komplexe Variablen wie Color, Material usw wohl nicht so einfach vom Network unterstützt werden
+            bulletColorVector4 = bulletColor.color;
             // Bullet wird bei "Fire1" Knopfdruck erschaffen, Bewegung siehe Script Paintball
-            CmdFire();
+
+            CmdFire(bulletColorVector4);
 
         }
-
 
     }
 
     [Command]
-    void CmdFire()
+    void CmdFire(Vector4 bulletColorVector)
     {
+
         // Paintball wird erstellt
         GameObject bullet = Instantiate(projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation) as GameObject;
-        
+        bullet.GetComponent<Renderer>().material.color = bulletColorVector;
+        // Bewegung in PaintballMP
         //bullet.transform.Translate(Vector3.forward * movement);
-        Debug.Log(projectileSpawnPoint.position);
-        Debug.Log(projectileSpawnPoint.rotation);
-        Debug.Log("Hallo?!");
+
         NetworkServer.Spawn(bullet);
         
     }

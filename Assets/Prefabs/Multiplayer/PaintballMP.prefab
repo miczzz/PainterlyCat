@@ -60,7 +60,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0f5ccd902666a094e8f29de9c411f02a, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,10 +126,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: 0.14
   lifeTicks: 200
+  bulletColor: {fileID: 0}
+  hitColor: {fileID: 0}
   cam: {fileID: 20461753492993794, guid: f2d4e2bbf5fd7a44b823570e75214882, type: 2}
   crosshairs: {fileID: 114684334038777954, guid: e7798dcedef7890469886688d765d2b7,
     type: 2}
-  spawnPoint: {fileID: 4695969790446050, guid: 59f66809a88c2974782fce40254bc882, type: 2}
+  spawnPoint: {fileID: 0}
 --- !u!114 &114527493194491228
 MonoBehaviour:
   m_ObjectHideFlags: 1

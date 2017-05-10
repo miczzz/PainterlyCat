@@ -9,12 +9,16 @@ public class PaintballMP : NetworkBehaviour
     public float movement;
     public int lifeTicks;
 
+    public Material bulletColor;
+    public Material hitColor;
+
     public Camera cam;
 
     private int aliveFor;
 
     public Crosshairs crosshairs;
-    
+    private GameObject hit;
+
     Plane plane;
     Ray ray;
     public Transform spawnPoint;
@@ -65,13 +69,29 @@ public class PaintballMP : NetworkBehaviour
     {
         Debug.Log("Collision detected");
         // Wenn der Player vom Bullet getroffen wird, wird Schaden von Health abgezogen
-        GameObject hit = collision.gameObject;
-        HealthMP health = hit.GetComponent<HealthMP>();
-        if(health!= null)
-        {
-            health.TakeDamage(1);
-        }
+        hit = collision.gameObject;
+        CmdBulletHitPlayer();
+
         // Bei Berührung stirbt Bullet
         Destroy(gameObject);
+    }
+
+    void CmdBulletHitPlayer()
+    {
+        HealthMP health = hit.GetComponent<HealthMP>();
+        Debug.Log(hit);
+        if (health != null)
+        {
+
+            bulletColor = gameObject.GetComponent<Renderer>().material;
+            hitColor = hit.transform.Find("PlayerBody").GetComponent<Renderer>().material;
+            //brush.transform.Find("Brushhead").GetComponent<Renderer>().material = newBulletColor;
+            //GetComponent<Renderer>().material = hitColor;
+
+            Debug.Log("Bullet: " + bulletColor + " Player: " + hitColor);
+
+            health.TakeDamage(1, bulletColor.color, hitColor.color);
+
+        }
     }
 }

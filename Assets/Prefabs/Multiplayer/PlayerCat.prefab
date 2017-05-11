@@ -1515,11 +1515,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1447782547258402, guid: f53bdf5089d724c419cdcd2751b2ca1b, type: 2}
   projectileSpawnPoint: {fileID: 4695969790446050}
-  cam: {fileID: 20461753492993794, guid: f2d4e2bbf5fd7a44b823570e75214882, type: 2}
+  cam: {fileID: 0}
   brush: {fileID: 1782061135315038}
   bulletColor: {fileID: 0}
   crosshairs: {fileID: 114684334038777954, guid: e7798dcedef7890469886688d765d2b7,
     type: 2}
+  brushHeadGameObject: {fileID: 1055184114604440}
   bulletColorVector4: {x: 0, y: 0, z: 0, w: 0}
   movement: 0.14
 --- !u!114 &114587010339824814

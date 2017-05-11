@@ -71,8 +71,8 @@ public class HealthMP : NetworkBehaviour {
             newColorNo = (int)Random.Range(0.01f, 3.99f);
              }
 
-            transform.Find("PlayerBody").GetComponent<Renderer>().material = newColors[newColorNo];
-            RpcSetPlayerColors(newColorNo);
+        transform.Find("PlayerBody").GetComponent<Renderer>().material = newColors[newColorNo];
+        RpcSetPlayerColors(newColorNo);
 
     }
 
@@ -90,13 +90,4 @@ public class HealthMP : NetworkBehaviour {
         transform.Find("PlayerBody").GetComponent<Renderer>().material = newColors[colorNo];
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

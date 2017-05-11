@@ -15,6 +15,9 @@ public class ShootScriptMP : NetworkBehaviour
 
     public Crosshairs crosshairs;
     private Vector3 point;
+    private GameObject playerActive;
+    private Transform brushHead;
+    public GameObject brushHeadGameObject;
 
     public Vector4 bulletColorVector4;
     public float movement = 100.14f;
@@ -66,32 +69,49 @@ public class ShootScriptMP : NetworkBehaviour
             //transform.LookAt(point);
 
             // Paintballfarbe wird vom Brushhead übernommen
-            bulletColor = brush.transform.Find("Brushhead").GetComponent<Renderer>().material;
+            //bulletColor = brush.transform.Find("Brushhead").GetComponent<Renderer>().material;
+            bulletColor = brushHeadGameObject.GetComponent<Renderer>().material;
+
             projectile.GetComponent<Renderer>().material = bulletColor;
+            
 
             // Vector4, da komplexe Variablen wie Color, Material usw wohl nicht so einfach vom Network unterstützt werden
             bulletColorVector4 = bulletColor.color;
             // Bullet wird bei "Fire1" Knopfdruck erschaffen, Bewegung siehe Script Paintball
 
-            CmdFire(bulletColorVector4);
+            if (!isServer)
+            {
+                CmdFire(bulletColorVector4);
+            } else
+            {
+                //Debug.Log("So you are the client, huh?");
+                RpcColorBullet(bulletColorVector4);
+            }
 
         }
 
     }
 
+    // Client lässt an Server ausführen
     [Command]
-    void CmdFire(Vector4 bulletColorVector)
+    public void CmdFire(Vector4 bulletColorVector)
     {
-
         // Paintball wird erstellt
+
         GameObject bullet = Instantiate(projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation) as GameObject;
         bullet.GetComponent<Renderer>().material.color = bulletColorVector;
-        // Bewegung in PaintballMP
-        //bullet.transform.Translate(Vector3.forward * movement);
 
         NetworkServer.Spawn(bullet);
-        
     }
+
+    // Von Server zu Clients
+    [ClientRpc]
+    public void RpcColorBullet(Vector4 bulletColorClient)
+    {
+        GameObject bullet = Instantiate(projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation) as GameObject;
+        bullet.GetComponent<Renderer>().material.color = bulletColorClient;
+    }
+
 }
 
 

@@ -10,41 +10,17 @@ public class MPPlayer : NetworkBehaviour {
     public Vector3 cameraOffset;
 
     public Transform mainCamera;
+    public Camera cam;
+
     public GameObject[] noOfPlayers;
     private bool gameHasBegun = false;
 
-    private int eins;
-    private int zwei;
-    private int nullo;
-    private int drei;
-
     // Use this for initialization
-    void Start () {
-        //transform.Find("PlayerBody").GetComponent<Renderer>().material = startingColor1;
+    void Start()
+    {
 
-        //for (int i = 0; i < 100; i++)
-        //{
-        //    startColorNo = (int)Random.Range(0.01f, 3.99f);
-        //    if (startColorNo == 0)
-        //    {
-        //        nullo++;
-        //    }
-        //    if (startColorNo == 1)
-        //    {
-        //        eins++;
-        //    }
-        //    if(startColorNo == 2)
-        //    {
-        //        zwei++;
-        //    }
-        //    if (startColorNo == 3)
-        //    {
-        //        drei++;
-        //    }
-        //}
-
-        Debug.Log("0: " + nullo + " 1: " + eins + " 2 " + zwei + " 3 " + drei);
-
+        //cam = FindObjectOfType<Camera>();
+        //mainCamera = cam.transform;
     }
 	
 	// Update is called once per frame

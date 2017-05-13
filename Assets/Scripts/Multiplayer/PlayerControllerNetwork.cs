@@ -35,8 +35,9 @@ public class PlayerControllerNetwork : NetworkBehaviour {
 
 
         cameraT = Camera.main.transform;
-        crosshairs = Instantiate(crosshairs, transform.position, transform.rotation);
-        //NetworkServer.Spawn(crosshairs);
+        crosshairs = Instantiate(crosshairs, transform.position, cameraT.rotation);
+        //crosshairs.layer = 31;
+        //crosshairs = Instantiate(crosshairs, cameraT.position, Quaternion.identity);
 
     }
 

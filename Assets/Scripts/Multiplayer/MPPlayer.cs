@@ -60,8 +60,13 @@ public class MPPlayer : NetworkBehaviour {
         Debug.Log(startColorNo);
 
         // Startfarbe des Players setzen (am besten einmal in einer anderen Klasse)
-
+        
         transform.Find("PlayerBody").GetComponent<Renderer>().material = startingColors[startColorNo];
+
+        // Startfarbe des Brushes setzen (gleiche wie Playerfarbe)
+        GameObject brush = transform.Find("mylittlebrushcolored").gameObject;
+        brush.transform.Find("Brushhead").GetComponent<Renderer>().material = startingColors[startColorNo];
+
         RpcSetPlayerColors(startColorNo);
     }
 
@@ -77,6 +82,8 @@ public class MPPlayer : NetworkBehaviour {
 
         // Nur für den Client
         transform.Find("PlayerBody").GetComponent<Renderer>().material = startingColors[colorNo];
+        GameObject brush = transform.Find("mylittlebrushcolored").gameObject;
+        brush.transform.Find("Brushhead").GetComponent<Renderer>().material = startingColors[colorNo];
     }
 
     //void MoveCamera()

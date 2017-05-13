@@ -275,7 +275,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4232130560580416}
   - component: {fileID: 54283234706376848}
-  - component: {fileID: 135757069672692700}
   - component: {fileID: 114061100446918386}
   - component: {fileID: 114773965192967424}
   - component: {fileID: 114773512778320676}
@@ -1428,6 +1427,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 4e22382374644ed4e9c0670766d708d4, type: 2}
   cameraOffset: {x: 0, y: 5, z: 3}
   mainCamera: {fileID: 0}
+  cam: {fileID: 0}
   noOfPlayers: []
 --- !u!114 &114195401885682768
 MonoBehaviour:
@@ -1631,18 +1631,6 @@ MonoBehaviour:
   speedSmoothTime: 0.1
   walkingFigure: {fileID: 4232130560580416}
   crosshairs: {fileID: 1204376067791886, guid: e7798dcedef7890469886688d765d2b7, type: 2}
---- !u!135 &135757069672692700
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1696041248734488}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 1.07
-  m_Center: {x: 0.02, y: 0.03, z: -0.18}
 --- !u!222 &222486541528522788
 CanvasRenderer:
   m_ObjectHideFlags: 1

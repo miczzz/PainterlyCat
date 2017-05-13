@@ -92,6 +92,7 @@ public class ShootScriptMP : NetworkBehaviour
 
     }
 
+    // Bullet wird instanziiert und gespawnt
     // Client lässt an Server ausführen
     [Command]
     public void CmdFire(Vector4 bulletColorVector)

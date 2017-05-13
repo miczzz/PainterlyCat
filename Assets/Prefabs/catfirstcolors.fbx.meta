@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1518995eba803354f8689f2d21643aba
-timeCreated: 1492168232
+timeCreated: 1494685976
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -23,6 +23,11 @@ ModelImporter:
     100030: Sphere.004
     100032: Sphere.005
     100034: Torus
+    100036: Cube
+    100038: Cube.001
+    100040: Torus.000
+    100042: Torus.002
+    100044: Torus.003
     400000: Camera
     400002: //RootNode
     400004: Cone
@@ -41,6 +46,11 @@ ModelImporter:
     400030: Sphere.004
     400032: Sphere.005
     400034: Torus
+    400036: Cube
+    400038: Cube.001
+    400040: Torus.000
+    400042: Torus.002
+    400044: Torus.003
     2300000: Cone
     2300002: Cone.001
     2300004: Cylinder
@@ -56,6 +66,11 @@ ModelImporter:
     2300024: Sphere.004
     2300026: Sphere.005
     2300028: Torus
+    2300030: Cube
+    2300032: Cube.001
+    2300034: Torus.000
+    2300036: Torus.002
+    2300038: Torus.003
     3300000: Cone
     3300002: Cone.001
     3300004: Cylinder
@@ -71,6 +86,11 @@ ModelImporter:
     3300024: Sphere.004
     3300026: Sphere.005
     3300028: Torus
+    3300030: Cube
+    3300032: Cube.001
+    3300034: Torus.000
+    3300036: Torus.002
+    3300038: Torus.003
     4300000: Sphere.005
     4300002: Sphere.004
     4300004: Torus
@@ -86,6 +106,11 @@ ModelImporter:
     4300024: Cone.001
     4300026: Cone
     4300028: Sphere
+    4300030: Cube.001
+    4300032: Cube
+    4300034: Torus.000
+    4300036: Torus.003
+    4300038: Torus.002
   materials:
     importMaterials: 1
     materialName: 0

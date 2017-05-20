@@ -76,7 +76,6 @@ public class CameraMovement : MonoBehaviour {
         if (Input.GetButton("Fire3"))
         {
             transform.position = player.position + offset;
-            Debug.Log("Hello there");
             transform.rotation = originalRotation;
         }
     }

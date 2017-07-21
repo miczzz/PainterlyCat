@@ -13,10 +13,7 @@ public class TeleportToNextLevelScript : MonoBehaviour {
 		int scene = SceneManager.GetActiveScene ().buildIndex;
 	
 	
-		if (SceneManager.sceneCountInBuildSettings > scene + 3)
 			SceneManager.LoadScene (scene + 1);
-		else {
-			Debug.Log ("no more levels available");
-		}
+		
 	}
 }

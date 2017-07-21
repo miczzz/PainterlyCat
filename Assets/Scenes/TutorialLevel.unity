@@ -2607,7 +2607,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_ForceModuleActive: 1
 --- !u!114 &775351148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5421,6 +5421,16 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 328279616}
+    - target: {fileID: 114682813354113680, guid: 8b4ea1c516d269242accc838462ea6bd,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 328279616}
+    - target: {fileID: 114682813354113680, guid: 8b4ea1c516d269242accc838462ea6bd,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b4ea1c516d269242accc838462ea6bd, type: 2}
   m_IsPrefabParent: 0

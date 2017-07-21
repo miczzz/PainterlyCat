@@ -17,5 +17,9 @@ public class PauseMenuScript : MonoBehaviour {
 		PauseMenu.enabled = false;
 		Cursor.lockState = CursorLockMode.Locked;
 	}
+
+	public void SkipLevel() {
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
+	}
 		
 }

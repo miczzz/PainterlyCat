@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TaskScript : MonoBehaviour {
 
@@ -28,6 +29,7 @@ public class TaskScript : MonoBehaviour {
 				levelComplete = true;
 
 				Destroy (door);
+
 			}
 		}
 	}

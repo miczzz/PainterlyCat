@@ -6,6 +6,12 @@ public class PlayerMovementScript : MonoBehaviour {
 
 	public float speed = 10.0F;
 
+	public Canvas PauseMenu;
+
+	void Awake () {
+		PauseMenu.enabled = false;
+	}
+
 	// Use this for initialization
 	void Start () {
 		// make cursor invisble and cursor cant go outside screen
@@ -26,6 +32,9 @@ public class PlayerMovementScript : MonoBehaviour {
 	
 		if (Input.GetKeyDown ("escape")) {
 			Cursor.lockState = CursorLockMode.None;
+			if (!PauseMenu.enabled) {
+				PauseMenu.enabled = true;
+			}
 		}
 	
 

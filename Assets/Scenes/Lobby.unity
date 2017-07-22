@@ -310,7 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   showGUI: 1
-  offsetX: 0
+  offsetX: 16
   offsetY: 0
 --- !u!114 &745440194
 MonoBehaviour:

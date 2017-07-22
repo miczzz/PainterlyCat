@@ -15,17 +15,37 @@ public class MPPlayer : NetworkBehaviour {
     public GameObject[] noOfPlayers;
     private bool gameHasBegun = false;
 
+    [SyncVar]
+    public int numberOfPlayers;
+
+    [SyncVar]
+    public int startColorNo;
+
+    [SyncVar]
+    public int startColorNo2;
+
     // Use this for initialization
     void Start()
     {
+        numberOfPlayers++;
+        Debug.Log(numberOfPlayers);
 
-        //cam = FindObjectOfType<Camera>();
-        //mainCamera = cam.transform;
+        if (isServer)
+        {
+            return;
+        }
+        else
+        {
+            SetPlayerColors(startColorNo, startColorNo2);
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
 
+        noOfPlayers = GameObject.FindGameObjectsWithTag("Player");
+        numberOfPlayers = noOfPlayers.Length;
+        Debug.Log(noOfPlayers.Length);
         // Damit das Spiel erst beginnt, wenn es (min?) 2 Spieler gibt
         if (!isServer)
         {
@@ -36,7 +56,8 @@ public class MPPlayer : NetworkBehaviour {
         {
             Debug.Log("Waiting for players...");
             noOfPlayers = GameObject.FindGameObjectsWithTag("Player");
-            if (noOfPlayers.Length >= 2)
+            //if (noOfPlayers.Length >= 2)
+            if (numberOfPlayers == 2)
             {
                 Debug.Log("The game may begin!");
                 gameHasBegun = true;
@@ -56,23 +77,35 @@ public class MPPlayer : NetworkBehaviour {
             return;
         }
 
-        int startColorNo = (int)Random.Range(0.01f, 3.99f);
-        Debug.Log(startColorNo);
+        startColorNo = (int)Random.Range(0.01f, 3.99f);
+        startColorNo2 = (int)Random.Range(0.01f, 3.99f);
 
-        // Startfarbe des Players setzen (am besten einmal in einer anderen Klasse)
-        
-        transform.Find("PlayerBody").GetComponent<Renderer>().material = startingColors[startColorNo];
+        if (isLocalPlayer)
+        {           
+            Debug.Log(startColorNo);
+            // Startfarbe des Players setzen (am besten einmal in einer anderen Klasse)
+            transform.Find("PlayerBody").GetComponent<Renderer>().material = startingColors[startColorNo];
+            // Startfarbe des Brushes setzen (gleiche wie Playerfarbe)
+            GameObject brush = transform.Find("mylittlebrushcolored").gameObject;
+            brush.transform.Find("Brushhead").GetComponent<Renderer>().material = startingColors[startColorNo];
+            
+        } else
+        {            
+            Debug.Log(startColorNo2);
+            // Startfarbe des Players setzen (am besten einmal in einer anderen Klasse)
+            transform.Find("PlayerBody").GetComponent<Renderer>().material = startingColors[startColorNo2];
+            // Startfarbe des Brushes setzen (gleiche wie Playerfarbe)
+            GameObject brush = transform.Find("mylittlebrushcolored").gameObject;
+            brush.transform.Find("Brushhead").GetComponent<Renderer>().material = startingColors[startColorNo2];
+        }
 
-        // Startfarbe des Brushes setzen (gleiche wie Playerfarbe)
-        GameObject brush = transform.Find("mylittlebrushcolored").gameObject;
-        brush.transform.Find("Brushhead").GetComponent<Renderer>().material = startingColors[startColorNo];
+        RpcSetPlayerColors(startColorNo, startColorNo2);
 
-        RpcSetPlayerColors(startColorNo);
     }
 
     // Farben werden an den Client übergeben
     [ClientRpc]
-    void RpcSetPlayerColors(int colorNo)
+    void RpcSetPlayerColors(int colorNo, int colorNo2)
     {
         // Wurden vom Server schon gesetzt
         if (isServer)
@@ -81,17 +114,46 @@ public class MPPlayer : NetworkBehaviour {
         }
 
         // Nur für den Client
-        transform.Find("PlayerBody").GetComponent<Renderer>().material = startingColors[colorNo];
-        GameObject brush = transform.Find("mylittlebrushcolored").gameObject;
-        brush.transform.Find("Brushhead").GetComponent<Renderer>().material = startingColors[colorNo];
+
+        if (!isLocalPlayer)
+        {
+            transform.Find("PlayerBody").GetComponent<Renderer>().material = startingColors[colorNo];
+            GameObject brush = transform.Find("mylittlebrushcolored").gameObject;
+            brush.transform.Find("Brushhead").GetComponent<Renderer>().material = startingColors[colorNo];
+        }
+        else
+        {
+            transform.Find("PlayerBody").GetComponent<Renderer>().material = startingColors[colorNo2];
+            GameObject brush = transform.Find("mylittlebrushcolored").gameObject;
+            brush.transform.Find("Brushhead").GetComponent<Renderer>().material = startingColors[colorNo2];
+        }
     }
 
-    //void MoveCamera()
-    //{
-    //    mainCamera.position = transform.position;
-    //    mainCamera.rotation = transform.rotation;
-    //    mainCamera.Translate(cameraOffset);
-    //    mainCamera.LookAt(transform); // to make look at player soo...actually player.transform or sth depending on where this script sits
-    //}
+    // nochmal extra, da es sonst zu einem Bug kam, wo der Client die Startfarben nicht gesetzt hat, wenn er
+    // etwas langsamer als der Server war ...
+    void SetPlayerColors(int colorNo, int colorNo2)
+    {
+        // Wurden vom Server schon gesetzt
+        if (isServer)
+        {
+            return;
+        }
+
+        // Nur für den Client
+
+        if (!isLocalPlayer)
+        {
+            transform.Find("PlayerBody").GetComponent<Renderer>().material = startingColors[colorNo];
+            GameObject brush = transform.Find("mylittlebrushcolored").gameObject;
+            brush.transform.Find("Brushhead").GetComponent<Renderer>().material = startingColors[colorNo];
+        }
+        else
+        {
+            transform.Find("PlayerBody").GetComponent<Renderer>().material = startingColors[colorNo2];
+            GameObject brush = transform.Find("mylittlebrushcolored").gameObject;
+            brush.transform.Find("Brushhead").GetComponent<Renderer>().material = startingColors[colorNo2];
+        }
+    }
+
 
 }

@@ -14,7 +14,7 @@ public class HealthMP : NetworkBehaviour {
     public ParticleSystem deathEffect;
 
     public Material[] newColors;
-
+    public Text gameOverText;
 
     public void TakeDamage(int amount, Color bulletColor, Color playerColor)
     {
@@ -38,6 +38,9 @@ public class HealthMP : NetworkBehaviour {
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
+
+            RpcSetGameOverText();
+        
                 Debug.Log("You are dead, dude!");
                 // soll später beim anderen Spieler ausgelöst werden
                  Instantiate(winningFanfare.gameObject, transform);
@@ -89,5 +92,22 @@ public class HealthMP : NetworkBehaviour {
         // Nur für den Client
         transform.Find("PlayerBody").GetComponent<Renderer>().material = newColors[colorNo];
     }
+
+
+    [ClientRpc]
+    void RpcSetGameOverText()
+    {
+        gameOverText = GameObject.FindObjectOfType<Text>();
+
+        if (isLocalPlayer)
+        {
+            gameOverText.text = "VERLOREN";
+        }
+        else
+        {
+            gameOverText.text = "GEWONNEN";
+        }
+    }
+
 
 }

@@ -8,24 +8,21 @@ public class TaskScriptUniversal : MonoBehaviour {
     public GameObject[] objects;
 	public Material[] objectWantedColors;
 	public Material[] objectCurrentColors;
-   // public int objectCurrentColorsSize;
     public GameObject door;
     public int correctColors;
 
 	private bool levelComplete = false;
 
-	// Use this for initialization
-    // hoffentlich sind da die Farben schon richtig zugewiesen, ansonsten gibts probleme
 	void Awake () {
 
-        //   objectCurrentColorsSize = objects.Length;
         audioSource = GetComponent<AudioSource>();
 
-        for (int i = 0; i < objects.Length; i++)
-        {
-            objectCurrentColors[i] = objects[i].GetComponent<Renderer>().material;
+        // aktuelle Farben zuweisen
+        //for (int i = 0; i < objects.Length; i++)
+        //{
+        //    objectCurrentColors[i] = objects[i].GetComponent<Renderer>().material;
             
-        }
+        //}
 
     }
 	

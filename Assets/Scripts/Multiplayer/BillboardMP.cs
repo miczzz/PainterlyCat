@@ -11,6 +11,9 @@ public class BillboardMP : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.LookAt(Camera.main.transform);
-	}
+        //transform.LookAt(Camera.main.transform);
+
+        // Grafik schaut in die gleiche Richtung wie die Kamera
+        transform.rotation = Quaternion.Slerp(transform.rotation, Camera.main.transform.rotation, 0.5f);
+    }
 }

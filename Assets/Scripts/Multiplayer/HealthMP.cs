@@ -40,8 +40,8 @@ public class HealthMP : NetworkBehaviour {
                 currentHealth = 0;
                 Debug.Log("You are dead, dude!");
                 // soll später beim anderen Spieler ausgelöst werden
-                Instantiate(winningFanfare.gameObject, transform);
-                Instantiate(deathEffect.gameObject, transform);
+                 Instantiate(winningFanfare.gameObject, transform);
+                 Instantiate(deathEffect.gameObject, transform);
 
                 Destroy(gameObject, 2);
             }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657886, g: 0.4964127, b: 0.57481724, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -3243,7 +3243,7 @@ GameObject:
   m_PrefabParentObject: {fileID: 1851031018720114, guid: c5881396baf5f7f44b7a5ea0bec9baa6,
     type: 2}
   m_PrefabInternal: {fileID: 684034754}
---- !u!114 &1868330342
+--- !u!114 &1868330343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -3251,20 +3251,109 @@ MonoBehaviour:
   m_GameObject: {fileID: 1868330341}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d53890b452a571d4288dc3ee2c7dc330, type: 3}
+  m_Script: {fileID: 11500000, guid: aafa2b5b8ba980b44bf42c19c2f25240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  object1: {fileID: 70282138}
-  object1WantedColor: {fileID: 2100000, guid: 8fa7a5fc582b59349a208c39feb4ab50, type: 2}
-  object2: {fileID: 1691872689}
-  object2WantedColor: {fileID: 2100000, guid: a8e650d5ace2db54fad1a7d637995311, type: 2}
-  object3: {fileID: 1695994875}
-  object3WantedColor: {fileID: 2100000, guid: 9ec2c759497b4014a87bc20b2afc1ba4, type: 2}
-  object4: {fileID: 732067228}
-  object4WantedColor: {fileID: 2100000, guid: 80e6b62ab4020294897a107620f402eb, type: 2}
-  object5: {fileID: 2027236016}
-  object5WantedColor: {fileID: 2100000, guid: 867e3885b86e3084f8f3c8004f094d9b, type: 2}
+  objects:
+  - {fileID: 70282138}
+  - {fileID: 1691872689}
+  - {fileID: 1695994875}
+  - {fileID: 732067228}
+  - {fileID: 2027236016}
+  objectWantedColors:
+  - {fileID: 2100000, guid: 8fa7a5fc582b59349a208c39feb4ab50, type: 2}
+  - {fileID: 2100000, guid: a8e650d5ace2db54fad1a7d637995311, type: 2}
+  - {fileID: 2100000, guid: 9ec2c759497b4014a87bc20b2afc1ba4, type: 2}
+  - {fileID: 2100000, guid: 80e6b62ab4020294897a107620f402eb, type: 2}
+  - {fileID: 2100000, guid: 867e3885b86e3084f8f3c8004f094d9b, type: 2}
+  objectCurrentColors:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   door: {fileID: 876459866}
+  correctColors: 0
+--- !u!82 &1868330344
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1868330341}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 02b00fff99979a84cbe1d575e95cfb44, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1001 &1876092460
 Prefab:
   m_ObjectHideFlags: 0

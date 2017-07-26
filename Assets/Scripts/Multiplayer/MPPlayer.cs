@@ -56,7 +56,7 @@ public class MPPlayer : NetworkBehaviour {
         {
             Debug.Log("Waiting for players...");
             noOfPlayers = GameObject.FindGameObjectsWithTag("Player");
-            //if (noOfPlayers.Length >= 2)
+
             if (numberOfPlayers == 2)
             {
                 Debug.Log("The game may begin!");

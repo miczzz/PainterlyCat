@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.Networking;
 
+// adapted from PlayerController script (see https://github.com/SebLague/Blender-to-Unity-Character-Creation) by Sebastian Lague
+
 public class PlayerControllerNetwork : NetworkBehaviour {
 
 	public float walkSpeed = 2;
@@ -14,18 +16,15 @@ public class PlayerControllerNetwork : NetworkBehaviour {
 	float speedSmoothVelocity;
 	float currentSpeed;
 
-	Animator animator;
 	Transform cameraT;
     public Transform walkingFigure;
     public GameObject crosshairs;
 
 	void Start () {
-        //animator = GetComponent<Animator> ();
 
-        //if (!GetComponentInParent<NetworkIdentity>().isLocalPlayer)
 
         Debug.Log("Local player:" + isLocalPlayer);
-            //Debug.Log(GetComponentInParent<NetworkIdentity>().isLocalPlayer);
+
         if (!isLocalPlayer)
         {
            
@@ -58,7 +57,6 @@ public class PlayerControllerNetwork : NetworkBehaviour {
         walkingFigure.Translate (walkingFigure.forward * currentSpeed * Time.deltaTime, Space.World);
 
 		float animationSpeedPercent = ((running) ? 1 : .5f) * inputDir.magnitude;
-		//animator.SetFloat ("speedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
 
 	}
 }

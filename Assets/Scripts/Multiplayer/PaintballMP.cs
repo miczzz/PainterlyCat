@@ -19,40 +19,12 @@ public class PaintballMP : NetworkBehaviour
     public Crosshairs crosshairs;
     private GameObject hit;
 
-    Plane plane;
-    Ray ray;
     public Transform spawnPoint;
 
 
-
-    // Use this for initialization
-    void Start()
-    {
-        //crosshairs = FindObjectOfType<Crosshairs>();
-        //transform.Translate(Vector3.forward * movement);
-
-
-    }
-
-   // [ServerCallback]
+   
     private void FixedUpdate()
     {
-        // test for shooting direction
-        //ray = cam.ScreenPointToRay(Input.mousePosition);
-        //plane = new Plane(Vector3.up, Vector3.up);
-        //float rayDistance;
-
-        //if (plane.Raycast(ray, out rayDistance))
-        //{
-        //    Vector3 point = ray.GetPoint(rayDistance);
-        //    Debug.DrawLine(ray.origin, point, Color.red);
-
-        //    crosshairs.transform.position = point;
-        //    //crosshairs.DetectTargets(ray);
-
-        //    transform.LookAt(point);
-
-        //}
 
         // Bullet fliegt geradeaus nach vorne | jetzt im ShootScriptMP
         transform.Translate(Vector3.forward * movement);
@@ -85,8 +57,6 @@ public class PaintballMP : NetworkBehaviour
 
             bulletColor = gameObject.GetComponent<Renderer>().material;
             hitColor = hit.transform.Find("PlayerBody").GetComponent<Renderer>().material;
-            //brush.transform.Find("Brushhead").GetComponent<Renderer>().material = newBulletColor;
-            //GetComponent<Renderer>().material = hitColor;
 
             Debug.Log("Bullet: " + bulletColor + " Player: " + hitColor);
 

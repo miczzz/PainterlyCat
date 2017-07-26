@@ -61,9 +61,6 @@ public class BulletChangerMP : NetworkBehaviour {
 
         RpcSetBulletColor(colorPick, playerInteracting);        
 
-        // Für später wenn die Farben geändert werden nachdem man getroffen wurde und am Anfang
-        //other.transform.Find("PlayerBody").GetComponent<Renderer>().material = newBulletColor;
-
     }
 
     int ColorFind()

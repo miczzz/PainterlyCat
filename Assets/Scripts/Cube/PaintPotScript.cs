@@ -10,6 +10,7 @@ public class PaintPotScript : MonoBehaviour {
 	void Start () {
 		rend = GetComponent<Renderer> ();
 		rend.enabled = true;
+       
 	}
 	
 	// Update is called once per frame

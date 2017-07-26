@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &14337056
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -329,6 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &26146086
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -538,6 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &82277574
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -633,6 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &113176191
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -728,6 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &140148989
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -815,6 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &151560060
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -965,6 +971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &253465297
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1060,6 +1067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &306153457
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1155,6 +1163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &313609865
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1436,6 +1445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &353879274
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1821,6 +1831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &384983595
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1916,6 +1927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &420012289
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2071,6 +2083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &444562732
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2179,6 +2192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &453133265
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2243,7 +2257,7 @@ GameObject:
   - component: {fileID: 493055418}
   m_Layer: 5
   m_Name: ShootingPoint
-  m_TagString: Untagged
+  m_TagString: ShootingPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2375,6 +2389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &538307590
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2625,6 +2640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &594238482
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3030,6 +3046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &688248602
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3125,6 +3142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &719043771
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3335,6 +3353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &820499638
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3430,6 +3449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &822101377
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3638,6 +3658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &866328605
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3733,6 +3754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &909803972
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3828,6 +3850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &911635411
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3923,6 +3946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &921962312
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4018,6 +4042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &936527606
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4100,6 +4125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &958801164
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4208,6 +4234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &995072758
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4391,6 +4418,7 @@ MonoBehaviour:
   fireRate: 0.25
   laserRange: 30
   startPosition: {fileID: 50390020}
+  shootingPoint: {fileID: 0}
   laserColor: {fileID: 2100000, guid: 56f5eab534847e74b8bfd0c355b1f832, type: 2}
 --- !u!120 &995929704
 LineRenderer:
@@ -4520,6 +4548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1020820329
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4602,6 +4631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1025554702
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4752,6 +4782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1092561210
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5008,6 +5039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1158276600
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5090,6 +5122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1239772961
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5198,6 +5231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1285346206
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5323,6 +5357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1333871984
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5564,6 +5599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1465832240
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5646,6 +5682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1479107546
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5899,6 +5936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1505535763
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6046,6 +6084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1514271322
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6154,6 +6193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1572524858
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6236,6 +6276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1581322894
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6344,6 +6385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1596642885
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6499,6 +6541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1626951188
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6594,6 +6637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1665545405
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6702,6 +6746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1703414329
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6797,6 +6842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1715638667
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6892,6 +6938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1755647608
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7183,6 +7230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1833161326
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7424,6 +7472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1902449951
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7519,6 +7568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1905031826
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7601,6 +7651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1910136190
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7709,6 +7760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1914879720
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7809,6 +7861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &2006154951
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7904,6 +7957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &2012187454
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8167,6 +8221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &2133398537
 MeshRenderer:
   m_ObjectHideFlags: 0

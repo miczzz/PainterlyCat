@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &2595291
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -601,6 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &114957498
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -795,6 +797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &170237433
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1045,6 +1048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &370556875
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1213,6 +1217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &477869549
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1308,6 +1313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &484658298
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1372,7 +1378,7 @@ GameObject:
   - component: {fileID: 493055418}
   m_Layer: 5
   m_Name: ShootingPoint
-  m_TagString: Untagged
+  m_TagString: ShootingPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1471,6 +1477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &540471149
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2225,6 +2232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &992791720
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2696,6 +2704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1242707902
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2925,6 +2934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!1 &1511312139
 GameObject:
   m_ObjectHideFlags: 0
@@ -3106,6 +3116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1531879728
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3391,6 +3402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c6e3912be26684995da349495ec24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
 --- !u!23 &1565056714
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4604,6 +4616,7 @@ MonoBehaviour:
   fireRate: 0.25
   laserRange: 30
   startPosition: {fileID: 1869686674}
+  shootingPoint: {fileID: 0}
   laserColor: {fileID: 2100000, guid: 56f5eab534847e74b8bfd0c355b1f832, type: 2}
 --- !u!114 &1858172886
 MonoBehaviour:

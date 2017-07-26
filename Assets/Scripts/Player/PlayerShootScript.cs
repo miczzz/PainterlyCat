@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerShootScript : MonoBehaviour {
 
@@ -16,7 +17,8 @@ public class PlayerShootScript : MonoBehaviour {
 	private WaitForSeconds shotDuration = new WaitForSeconds(1.0f);    // WaitForSeconds object used by our ShotEffect coroutine, determines time laser line will remain visible
 
 	private LineRenderer laserLine;                                     // Reference to the LineRenderer component which will display laserline
-	private float nextFire;   
+    private GameObject shootingPoint;                                   // Reference to shootingpoint for aiming
+    private float nextFire;   
 
 	public Material laserColor;
 
@@ -24,8 +26,9 @@ public class PlayerShootScript : MonoBehaviour {
 	void Start () {
 		// Get and store a reference to our LineRenderer component
 		laserLine = GetComponent<LineRenderer>();
+        shootingPoint = GameObject.FindGameObjectWithTag("ShootingPoint");
 
-		laserLine.sharedMaterial = laserColor;
+        laserLine.sharedMaterial = laserColor;
 
 		cam = Camera.main;
 	}
@@ -62,7 +65,9 @@ public class PlayerShootScript : MonoBehaviour {
 				if (paintPot.getColor () != null) {
 					laserColor = paintPot.getColor ();
 					laserLine.sharedMaterial = laserColor;
-				}
+                    shootingPoint.GetComponent<Image>().color = laserColor.color;
+
+                }
 			} 
 			else {
 				CubeColorChange colorChange = hit.collider.GetComponent<CubeColorChange> ();

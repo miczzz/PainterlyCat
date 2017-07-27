@@ -3,27 +3,38 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class MenuScriptLobby : MonoBehaviour {
 
-	public Canvas MainMenu;
+    public GameObject networkAnnoyance;
+    public NetworkManager networkAnnoyance2;
+    public GameObject anleitung;
+    public GameObject networkParent;
 
-	public Canvas HelpMenu;
+    // OK, schön ist das nicht, aber immerhin verhält es sich endlich wie gewünscht, dass
+    // der Network HUD verschwindet wenn man das MP-Menü verlässt und dann wiederkommt, wenn man wieder reingeht
+	public void Start() {
+        anleitung.SetActive(false);
+        networkAnnoyance = FindObjectOfType<NetworkManager>().gameObject;
+        networkAnnoyance.SetActive(true);
+        networkAnnoyance2.dontDestroyOnLoad = true;
+    }
 
-	public void Awake() {
-	
-		//HelpMenu.enabled = false;
+    public void OpenHelpScreen() {
+        // toggle Anleitung
+        anleitung.SetActive(!anleitung.activeSelf);
 
-	}
-
-	public void OpenHelpScreen() {
-	
-		HelpMenu.enabled = true;
-		MainMenu.enabled = false;
-	}
+        if (networkAnnoyance != null)
+        {
+            networkAnnoyance.SetActive(!networkAnnoyance.activeSelf);
+        }
+    }
 
 	public void ReturnToMainScreen() {
 
+        networkAnnoyance2.dontDestroyOnLoad = false;
+        
         SceneManager.LoadScene(0);
     }
 

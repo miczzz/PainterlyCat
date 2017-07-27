@@ -3,18 +3,36 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class MenuScript : MonoBehaviour {
 
 	public Canvas MainMenu;
-
+    
 	public Canvas HelpMenu;
+    public NetworkManagerHUD networkGUI;
+    public NetworkLobbyManager networkLobby;
+    public GameObject networkStuff;
 
-	public void Awake() {
+    public void Awake() {
 	
 		HelpMenu.enabled = false;
+        
+    }
 
-	}
+    public void Update()
+    {
+        networkLobby = FindObjectOfType<NetworkLobbyManager>();
+        networkGUI = FindObjectOfType<NetworkManagerHUD>();
+        if (networkGUI != null)
+        {
+            Destroy(networkGUI);
+        }
+        if(networkLobby != null)
+        {
+            Destroy(networkLobby);
+        }
+    }
 
 	public void OpenHelpScreen() {
 	
@@ -34,7 +52,7 @@ public class MenuScript : MonoBehaviour {
 	}
 
 	public void LoadLevelMultiplayer() {
-		SceneManager.LoadScene (1);
+        SceneManager.LoadScene (1);
 	}
 
 	public void QuitGame() {

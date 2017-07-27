@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Paintball
   - ShootingPoint
+  - NetworkManager
   layers:
   - Default
   - TransparentFX

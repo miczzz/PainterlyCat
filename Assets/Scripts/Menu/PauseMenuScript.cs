@@ -21,5 +21,10 @@ public class PauseMenuScript : MonoBehaviour {
 	public void SkipLevel() {
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
 	}
+
+	public void RestartLevel() {
+		
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+	}
 		
 }

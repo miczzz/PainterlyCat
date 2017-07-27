@@ -30,7 +30,7 @@ public class MenuScript : MonoBehaviour {
 
 
 	public void LoadLevelOne() {
-		SceneManager.LoadScene (2);
+		SceneManager.LoadScene (3);
 	}
 
 	public void LoadLevelMultiplayer() {

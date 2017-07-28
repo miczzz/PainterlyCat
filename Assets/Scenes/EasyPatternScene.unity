@@ -3442,7 +3442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -12502,7 +12502,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Dieser Raum ist ein wenig anders, du musst hier ein Muster vervollst\xE4ndigen...grunz."
+  m_Text: "Dieser Raum ist ein wenig anders, du musst hier  Muster vervollst\xE4ndigen...grunz."
 --- !u!222 &1748826802
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13048,7 +13048,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1d3658d3ea906df4e9c06e4b002781d0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 02b00fff99979a84cbe1d575e95cfb44, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

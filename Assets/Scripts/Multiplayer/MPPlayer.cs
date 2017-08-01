@@ -13,6 +13,7 @@ public class MPPlayer : NetworkBehaviour {
     public Camera cam;
 
     public GameObject[] noOfPlayers;
+    public GameObject[] players;
     private bool gameHasBegun = false;
 
     [SyncVar]
@@ -24,18 +25,41 @@ public class MPPlayer : NetworkBehaviour {
     [SyncVar]
     public int startColorNo2;
 
+    //Server Player
+    [SyncVar]
+    public GameObject player1;
+
+    //Client Player
+    [SyncVar]
+    public GameObject player2;
+
+    public NetworkConnection player1connection;
+    public NetworkConnection player2connection;
+
     // Use this for initialization
     void Start()
     {
         numberOfPlayers++;
-        Debug.Log(numberOfPlayers);
+        //Debug.Log(numberOfPlayers);
 
         if (isServer)
         {
-            return;
+            players = GameObject.FindGameObjectsWithTag("Player");
+            player1 = players[0]; // wird wohl nach Adam Riese der Server sein...?!
+
+            //player1connection = gameObject.GetComponent<MPPlayer>().connectionToClient;
+            // Ist ja der Server...
+            player1connection = connectionToClient;
+
+            if (players.Length >= 2)
+            {
+                player2 = players[1];
+               
+            }
         }
         else
         {
+            player2connection = connectionToClient;
             SetPlayerColors(startColorNo, startColorNo2);
         }
     }
@@ -44,8 +68,9 @@ public class MPPlayer : NetworkBehaviour {
 	void Update () {
 
         noOfPlayers = GameObject.FindGameObjectsWithTag("Player");
+        
         numberOfPlayers = noOfPlayers.Length;
-        Debug.Log(noOfPlayers.Length);
+        //Debug.Log(noOfPlayers.Length);
         // Damit das Spiel erst beginnt, wenn es (min?) 2 Spieler gibt
         if (!isServer)
         {
@@ -66,7 +91,15 @@ public class MPPlayer : NetworkBehaviour {
 
         }
 
+        //if(gameHasBegun && noOfPlayers.Length < 2)
+        //{
+        //    GameObject.FindWithTag("RematchMenu").SetActive(true);
+        //    GameObject.FindWithTag("RematchMenu").GetComponent<Canvas>().enabled = true;
+        //}
+
     }
+
+
 
     // Server bestimmt die Farben und setzt sie
     [Command]

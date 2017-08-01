@@ -60,7 +60,7 @@ public class CameraMovement : MonoBehaviour {
             //transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
 
             // Wir wollen nur Y-Rotation ändern...
-            Vector3 yVectorRotation = new Vector3(transform.localRotation.eulerAngles.x, 1,0);
+            //Vector3 yVectorRotation = new Vector3(transform.localRotation.eulerAngles.x, 1,0);
             //transform.localRotation = Quaternion.AngleAxis(mouseLook.x, Vector3.up);
 
            // mouseLook = new Vector2(mouseLook.x, -mouseLook.y);

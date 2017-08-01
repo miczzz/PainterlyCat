@@ -20755,6 +20755,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 5
   smoothing: 2
+  Min_X: 0
+  Min_Y: -54
+  Max_X: 255
+  Max_Y: 116
 --- !u!81 &1137158101
 AudioListener:
   m_ObjectHideFlags: 0

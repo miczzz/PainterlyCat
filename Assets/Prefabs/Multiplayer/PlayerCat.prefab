@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 114587010339824814}
   - component: {fileID: 65372135344580758}
   - component: {fileID: 114176414187784758}
+  - component: {fileID: 82096640166353278}
   m_Layer: 0
   m_Name: PlayerCat
   m_TagString: Player
@@ -521,7 +522,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1696041248734488}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.28, y: 0, z: 9.42}
+  m_LocalPosition: {x: -0.8192184, y: -1, z: 4.570312}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4272556549104014}
@@ -1657,6 +1658,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.79, y: 2.68, z: 1.67}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &82096640166353278
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1696041248734488}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b2e85a41816f37c40abfb18bb343ea8e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114061100446918386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1709,6 +1790,12 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   cam: {fileID: 0}
   noOfPlayers: []
+  players: []
+  numberOfPlayers: 0
+  startColorNo: 0
+  startColorNo2: 0
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!114 &114195401885682768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1798,8 +1885,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   brush: {fileID: 1782061135315038}
   bulletColor: {fileID: 0}
-  crosshairs: {fileID: 114684334038777954, guid: e7798dcedef7890469886688d765d2b7,
-    type: 2}
+  crosshairs: {fileID: 0}
   brushHeadGameObject: {fileID: 1055184114604440}
   bulletColorVector4: {x: 0, y: 0, z: 0, w: 0}
   movement: 0.14
@@ -1819,6 +1905,14 @@ MonoBehaviour:
   winningFanfare: {fileID: 198145291502716512, guid: 809fe7db35f0c474f9d4307f0822d48d,
     type: 2}
   deathEffect: {fileID: 198958100594621524, guid: d61a71e6d94ef83459173c0051d9ceca,
+    type: 2}
+  wasHitSound: {fileID: 82096640166353278}
+  otherPlayer: {fileID: 0}
+  serverPlayerPlace: {fileID: 0}
+  clientPlayerPlace: {fileID: 0}
+  restartMenu: {fileID: 1536999801446494, guid: 1e1b43508493b554bbd55e4f6abcccac,
+    type: 2}
+  restartMenuCanvas: {fileID: 223777845222060176, guid: 1e1b43508493b554bbd55e4f6abcccac,
     type: 2}
   newColors:
   - {fileID: 2100000, guid: 0f5ccd902666a094e8f29de9c411f02a, type: 2}
@@ -1886,7 +1980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 3
-  m_SendInterval: 0.1
+  m_SendInterval: 0.055555556
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 2
   m_SyncSpin: 0

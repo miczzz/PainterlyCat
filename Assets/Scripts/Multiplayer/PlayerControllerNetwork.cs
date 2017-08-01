@@ -56,7 +56,7 @@ public class PlayerControllerNetwork : NetworkBehaviour {
 
         walkingFigure.Translate (walkingFigure.forward * currentSpeed * Time.deltaTime, Space.World);
 
-		float animationSpeedPercent = ((running) ? 1 : .5f) * inputDir.magnitude;
+		//float animationSpeedPercent = ((running) ? 1 : .5f) * inputDir.magnitude;
 
 	}
 }

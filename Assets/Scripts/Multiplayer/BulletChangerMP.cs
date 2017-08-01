@@ -11,12 +11,13 @@ public class BulletChangerMP : NetworkBehaviour {
     public GameObject playerBody;
     public Material[] brushColors;
     public GameObject playerInteracting;
+    public AudioSource paintCollectSound;
 
 
     // Use this for initialization
     void Start () {
-		
-	}
+        paintCollectSound = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -35,8 +36,9 @@ public class BulletChangerMP : NetworkBehaviour {
             //    return;
             //}
             playerInteracting = other.transform.gameObject;
-            Debug.Log(playerInteracting);
+           // Debug.Log(playerInteracting);
             GameObject brush = other.transform.Find("mylittlebrushcolored").gameObject;
+            paintCollectSound.Play();
             CmdChangeBulletColor(brush);
         }
 
@@ -52,7 +54,7 @@ public class BulletChangerMP : NetworkBehaviour {
         brush.transform.Find("Brushhead").GetComponent<Renderer>().material = newBulletColor;
         // prob not Renderer brushHead = brush.transform.Find("Brushhead").GetComponent<Renderer>();
 
-        Debug.Log(brush.transform.Find("Brushhead"));
+        //Debug.Log(brush.transform.Find("Brushhead"));
 
         bullet.GetComponent<Renderer>().material = newBulletColor;
         //brushhead.GetComponent<Renderer>().material = newBulletColor;

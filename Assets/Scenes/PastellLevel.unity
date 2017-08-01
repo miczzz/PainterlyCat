@@ -2123,6 +2123,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 5
   smoothing: 2
+  Min_X: 0
+  Min_Y: -54
+  Max_X: 255
+  Max_Y: 116
 --- !u!114 &328279616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6655,6 +6659,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   PauseMenu: {fileID: 149822120}
+  cursorTexture: {fileID: 2800000, guid: 107885c8a9c4e7144a5e77f6cf2c4ddd, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}
 --- !u!114 &995929703
 MonoBehaviour:
   m_ObjectHideFlags: 0

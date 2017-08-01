@@ -3,18 +3,54 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class HealthMP : NetworkBehaviour {
 
     public const int maxHealth = 5;
     // wenn sich die Health ändert wird die Methode OnChangeHealth vom Server aufgerufen und updated die UI
     [SyncVar (hook = "OnChangeHealth")] public int currentHealth = maxHealth;
+    public int maximumHealth = 5;
     public RectTransform healthbar;
     public ParticleSystem winningFanfare;
     public ParticleSystem deathEffect;
-
+    public AudioSource wasHitSound;
+    public MPPlayer otherPlayer;
+    public Transform serverPlayerPlace;
+    public Transform clientPlayerPlace;
+    public GameObject restartMenu;
+    //public Canvas restartMenuCanvas;
+  
     public Material[] newColors;
-    public Text gameOverText;
+    public GameObject gameOverText;
+    public Text gameOverTextText;
+
+    private void Start()
+    {
+        restartMenu = GameObject.FindWithTag("RematchMenu");
+        Debug.Log(restartMenu);
+        //restartMenuCanvas = restartMenu.GetComponent<Canvas>();
+        //restartMenuCanvas.enabled = false;
+        //restartMenu.SetActive(false);
+        //FindObjectOfType(PlayerControllerNetwork).gameObject;
+    }
+
+    private void Update()
+    {
+        // In Start findet er das nicht...da zu schnell?
+        //if (restartMenu = null)
+        //{
+        //while (restartMenu == null)
+        
+            restartMenu = GameObject.FindWithTag("RematchMenu");
+        
+        //}
+    }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+    }
 
     public void TakeDamage(int amount, Color bulletColor, Color playerColor)
     {
@@ -27,6 +63,7 @@ public class HealthMP : NetworkBehaviour {
         if (bulletColor.Equals(playerColor))
         {
             currentHealth -= amount;
+            wasHitSound.Play();
             Debug.Log("It's a match!");
             CmdChangeBodyColor();
         }
@@ -39,15 +76,18 @@ public class HealthMP : NetworkBehaviour {
             {
                 currentHealth = 0;
 
-            RpcSetGameOverText();
+                RpcSetGameOverText();
         
                 Debug.Log("You are dead, dude!");
-                // soll später beim anderen Spieler ausgelöst werden
-                 Instantiate(winningFanfare.gameObject, transform);
-                 Instantiate(deathEffect.gameObject, transform);
 
-                Destroy(gameObject, 2);
-            }
+            //passiert halt jetzt sofort...naja
+            //gameObject.GetComponent<Renderer>().enabled = false;
+
+            
+            //ResetHealth();
+            //gameObject.SetActive(false);
+            //Destroy(gameObject, 2);
+        }
         }     
 
 
@@ -62,20 +102,25 @@ public class HealthMP : NetworkBehaviour {
     [Command]
     void CmdChangeBodyColor()
     {
+        // wenn er stirbt muss er ja die Farbe nicht mehr ändern
+        if (currentHealth >= 1)
+        {
             int newColorNo = (int)Random.Range(0.01f, 3.99f);
 
             Debug.Log(newColorNo);
-        // Farbe des Players setzen (am besten einmal in einer anderen Klasse)
+            // Farbe des Players setzen (am besten einmal in einer anderen Klasse)
 
             Color playerBodyColor = transform.Find("PlayerBody").GetComponent<Renderer>().material.color;
 
-        // Damit die Farbe immer eine andere ist und nicht gleich bleibt (vielleicht soll es aber doch die Option geben, noch unklar)
-            while (playerBodyColor.Equals(newColors[newColorNo].color)){
-            newColorNo = (int)Random.Range(0.01f, 3.99f);
-             }
+            // Damit die Farbe immer eine andere ist und nicht gleich bleibt (vielleicht soll es aber doch die Option geben, noch unklar)
+            while (playerBodyColor.Equals(newColors[newColorNo].color))
+            {
+                newColorNo = (int)Random.Range(0.01f, 3.99f);
+            }
 
-        transform.Find("PlayerBody").GetComponent<Renderer>().material = newColors[newColorNo];
-        RpcSetPlayerColors(newColorNo);
+            transform.Find("PlayerBody").GetComponent<Renderer>().material = newColors[newColorNo];
+            RpcSetPlayerColors(newColorNo);
+        }
 
     }
 
@@ -93,21 +138,115 @@ public class HealthMP : NetworkBehaviour {
         transform.Find("PlayerBody").GetComponent<Renderer>().material = newColors[colorNo];
     }
 
-
+    // calling all clients ( I guess? )
     [ClientRpc]
     void RpcSetGameOverText()
     {
-        gameOverText = GameObject.FindObjectOfType<Text>();
+        restartMenu.transform.GetChild(0).gameObject.SetActive(true);
+
+        gameOverText = GameObject.FindWithTag("GameOverText");
+        gameOverTextText = gameOverText.GetComponent<Text>();
+        deathEffect.GetComponent<ParticleSystemRenderer>().material = transform.Find("PlayerBody").GetComponent<Renderer>().material;
+        Instantiate(deathEffect.gameObject, transform);
 
         if (isLocalPlayer)
         {
-            gameOverText.text = "VERLOREN";
+            gameOverTextText.text = "VERLOREN";
+            //restartMenuCanvas.enabled = true;
+            if (isServer)
+            {
+                CmdGameOverEffects(false);
+            }
+
         }
         else
         {
-            gameOverText.text = "GEWONNEN";
-        }
+            gameOverTextText.text = "GEWONNEN";
+            //restartMenuCanvas.enabled = true;
+            if (!isServer)
+            {
+                CmdGameOverEffects(true);
+            }
+            else
+            {
+                RpcGameOverEffects(true);
+            }
+
+        }      
+
     }
 
+    [Command]
+    void CmdGameOverEffects(bool serverWon)
+    {
+        // aus Sicht des Gewinners:
+        otherPlayer = FindObjectOfType<MPPlayer>();
+
+        serverPlayerPlace = otherPlayer.player1.transform;
+        clientPlayerPlace = otherPlayer.player2.transform;
+
+        MPPlayer serverPlayer = serverPlayerPlace.GetComponentInParent<MPPlayer>();
+        MPPlayer clientPlayer = clientPlayerPlace.GetComponentInParent<MPPlayer>();
+
+
+        // Beim Host wird es richtig angezeigt, beim Server falsch...
+
+        //if (serverWon)
+        //    {
+        //        Instantiate(winningFanfare.gameObject, serverPlayer.transform);
+        //    }
+        //    else
+        //    {
+        //        Instantiate(winningFanfare.gameObject, clientPlayer.transform);
+        //    }
+
+        //restartMenuCanvas.enabled = true;
+
+        //restartMenu.SetActive(true);
+
+        //Destroy(serverPlayer);
+        //Destroy(clientPlayer);
+
+        }
+
+
+    // From server to clients
+    [ClientRpc]
+    void RpcGameOverEffects(bool serverWon)
+    {
+        // aus Sicht des Gewinners:
+        otherPlayer = FindObjectOfType<MPPlayer>();
+
+        serverPlayerPlace = otherPlayer.player1.transform;
+        clientPlayerPlace = otherPlayer.player2.transform;
+
+        MPPlayer serverPlayer = serverPlayerPlace.GetComponentInParent<MPPlayer>();
+        MPPlayer clientPlayer = clientPlayerPlace.GetComponentInParent<MPPlayer>();
+
+
+        // Beim Host wird es richtig angezeigt, beim Server falsch...
+
+        if (serverWon)
+        {
+            Instantiate(winningFanfare.gameObject, serverPlayer.transform);
+        }
+        else
+        {
+            Instantiate(winningFanfare.gameObject, clientPlayer.transform);
+        }
+
+        //restartMenuCanvas.enabled = true;
+
+
+        //restartMenu.SetActive(true);
+
+        // unnötig?
+        //Destroy(serverPlayer);
+        //Destroy(clientPlayer);
+
+    }
 
 }
+
+
+

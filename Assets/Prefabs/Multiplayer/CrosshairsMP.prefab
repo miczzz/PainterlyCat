@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4729712661957874}
   - component: {fileID: 212695111319091222}
-  - component: {fileID: 114684334038777954}
   - component: {fileID: 114377966165144632}
+  - component: {fileID: 114933738212754302}
   m_Layer: 5
   m_Name: CrosshairsMP
   m_TagString: Untagged
@@ -74,7 +74,7 @@ MonoBehaviour:
     i15: 183
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
---- !u!114 &114684334038777954
+--- !u!114 &114933738212754302
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1204376067791886}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7be801acc36739b4e871fc18eb2c0fa1, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e67dfab517c59a4d967ce486d10bedd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetMask:

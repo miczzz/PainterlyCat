@@ -118,7 +118,7 @@ public class MPMenuScript : NetworkBehaviour {
         player1.transform.position = spawnPoint1.transform.position;
         player1.transform.rotation = spawnPoint1.transform.rotation;
         serverHealthMP = player2.GetComponentInParent<HealthMP>();
- 
+
         clientHealthMP.ResetHealth();
         serverHealthMP.ResetHealth();
 
@@ -134,6 +134,7 @@ public class MPMenuScript : NetworkBehaviour {
         }
         FindPlayers();
         gameOverText.text = "";
+
         player2.transform.position = spawnPoint2.transform.position;
         player2.transform.rotation = spawnPoint2.transform.rotation;
         clientHealthMP = player1.GetComponentInParent<HealthMP>();
@@ -150,7 +151,7 @@ public class MPMenuScript : NetworkBehaviour {
     public void FindPlayers()
     {
         // hm?
-        //otherPlayer = FindObjectOfType<MPPlayer>();
+        otherPlayer = FindObjectOfType<MPPlayer>();
 
         //if (isServer)        {
             players = GameObject.FindGameObjectsWithTag("Player");

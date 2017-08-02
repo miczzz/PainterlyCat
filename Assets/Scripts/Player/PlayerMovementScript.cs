@@ -34,27 +34,29 @@ public class PlayerMovementScript : MonoBehaviour {
 
 		transform.Translate (horizonzal, 0, vertical);
 
-	
-		if (Input.GetKeyDown ("escape")) {
+        // note: Due to unity's use of the escape key the cursor will not reset to the center of the screen in the editor
+        // but it will in the build (which is where it counts)
+        // when using 
+        // Cursor.lockState = CursorLockMode.Locked; followed by
+        // Cursor.lockState = CursorLockMode.None;
+        if (Input.GetKeyDown ("escape")) {
             Cursor.visible = true;
 
-            Cursor.lockState = CursorLockMode.Confined;
-
-
-            // führt zu Problemen:
-            //Cursor.lockState = CursorLockMode.Locked;
 
             // Wenn man das Menü aufruft
             if (!PauseMenu.enabled)
-            {            
+            {
+                FindObjectOfType<CameraMouseMovement>().mouseEnabled = false;
                 PauseMenu.enabled = true;
-                //Cursor.lockState = CursorLockMode.Locked;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.lockState = CursorLockMode.None;
                 // Cursor.visible = true;
                 //Cursor.lockState = CursorLockMode.Locked;
 
             } else          
             // Wenn das Menü weggedrückt wird
             {
+                FindObjectOfType<CameraMouseMovement>().mouseEnabled = true;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = false;
                 PauseMenu.enabled = false;

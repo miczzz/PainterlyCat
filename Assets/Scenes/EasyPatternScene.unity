@@ -591,6 +591,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   PauseMenu: {fileID: 217427933}
+  cursorTexture: {fileID: 0}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}
 --- !u!54 &41088463
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8573,6 +8576,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 5
   smoothing: 2
+  Min_X: 0
+  Min_Y: -54
+  Max_X: 255
+  Max_Y: 116
+  mouseEnabled: 1
 --- !u!81 &1137158101
 AudioListener:
   m_ObjectHideFlags: 0
@@ -12502,7 +12510,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Dieser Raum ist ein wenig anders, du musst hier  Muster vervollst\xE4ndigen...grunz."
+  m_Text: "Dieser Raum ist ein wenig anders, du musst hier Muster vervollst\xE4ndigen...grunz."
 --- !u!222 &1748826802
 CanvasRenderer:
   m_ObjectHideFlags: 0

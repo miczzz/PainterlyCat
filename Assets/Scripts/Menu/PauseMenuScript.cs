@@ -15,7 +15,8 @@ public class PauseMenuScript : MonoBehaviour {
 
 	public void ResumeGame() {
 		PauseMenu.enabled = false;
-		Cursor.lockState = CursorLockMode.Locked;
+        FindObjectOfType<CameraMouseMovement>().mouseEnabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	public void SkipLevel() {

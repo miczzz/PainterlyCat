@@ -21,6 +21,13 @@ public class MenuScriptLobby : MonoBehaviour {
         networkAnnoyance2.dontDestroyOnLoad = true;
     }
 
+    public void OnEnable()
+    {
+        networkAnnoyance = FindObjectOfType<NetworkManager>().gameObject;
+        networkAnnoyance.SetActive(true);
+        networkAnnoyance2.dontDestroyOnLoad = true;
+    }
+
     public void OpenHelpScreen() {
         // toggle Anleitung
         anleitung.SetActive(!anleitung.activeSelf);
@@ -32,10 +39,17 @@ public class MenuScriptLobby : MonoBehaviour {
     }
 
 	public void ReturnToMainScreen() {
+       
 
         networkAnnoyance2.dontDestroyOnLoad = false;
-        
+
         SceneManager.LoadScene(0);
+
+        //etwas unschön, aber besser als der Bug, dass es sonst gar nicht mehr auftaucht, das LobbyMenü
+        if (networkAnnoyance != null)
+        {
+            networkAnnoyance.SetActive(true);
+        }
     }
 
 

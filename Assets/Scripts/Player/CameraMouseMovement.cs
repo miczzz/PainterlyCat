@@ -12,7 +12,7 @@ public class CameraMouseMovement : MonoBehaviour {
     public int Min_Y = -54;
     public int Max_X = 255;
     public int Max_Y = 116;
-    
+    public bool mouseEnabled = true;
 
     GameObject player;
 	// Use this for initialization
@@ -22,20 +22,22 @@ public class CameraMouseMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		var mouseMovement = new Vector2 (Input.GetAxisRaw ("Mouse X"), Input.GetAxisRaw ("Mouse Y"));
+        if (mouseEnabled)
+        {
+            Vector2 mouseMovement = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
 
-		mouseMovement = Vector2.Scale (mouseMovement, new Vector2 (sensitivity * smoothing, sensitivity * smoothing));
-		smoothV.x = Mathf.Lerp (smoothV.x, mouseMovement.x, 1f / smoothing);
-		smoothV.y = Mathf.Lerp (smoothV.y, mouseMovement.y, 1f / smoothing);
+            mouseMovement = Vector2.Scale(mouseMovement, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
+            smoothV.x = Mathf.Lerp(smoothV.x, mouseMovement.x, 1f / smoothing);
+            smoothV.y = Mathf.Lerp(smoothV.y, mouseMovement.y, 1f / smoothing);
 
-       // mouseLook.x = Mathf.Clamp(mouseLook.x+smoothV.x, Min_X, Max_X);
-        mouseLook.x = mouseLook.x + smoothV.x;
+            // mouseLook.x = Mathf.Clamp(mouseLook.x+smoothV.x, Min_X, Max_X);
+            mouseLook.x = mouseLook.x + smoothV.x;
 
-        // Um Kamerabewegung zu beschränken, so dass man die Kamera nicht auf den Kopf stellen kann
-        mouseLook.y = Mathf.Clamp(mouseLook.y+smoothV.y, Min_Y, Max_Y);
+            // Um Kamerabewegung zu beschränken, so dass man die Kamera nicht auf den Kopf stellen kann
+            mouseLook.y = Mathf.Clamp(mouseLook.y + smoothV.y, Min_Y, Max_Y);
 
-		transform.localRotation = Quaternion.AngleAxis (-mouseLook.y, Vector3.right);
-		player.transform.localRotation = Quaternion.AngleAxis (mouseLook.x, player.transform.up);
-
-	}
+            transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
+            player.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, player.transform.up);
+        }
+    }
 }

@@ -12,6 +12,7 @@ public class HealthMP : NetworkBehaviour {
     [SyncVar (hook = "OnChangeHealth")] public int currentHealth = maxHealth;
     public int maximumHealth = 5;
     public RectTransform healthbar;
+    public ParticleSystem[] effects;
     public ParticleSystem winningFanfare;
     public ParticleSystem deathEffect;
     public AudioSource wasHitSound;
@@ -19,6 +20,7 @@ public class HealthMP : NetworkBehaviour {
     public Transform serverPlayerPlace;
     public Transform clientPlayerPlace;
     public GameObject restartMenu;
+    public GameObject[] paintballs;
     //public Canvas restartMenuCanvas;
   
     public Material[] newColors;
@@ -50,6 +52,21 @@ public class HealthMP : NetworkBehaviour {
     public void ResetHealth()
     {
         currentHealth = maxHealth;
+        // um eine neue Farbe zu geben
+        CmdChangeBodyColor();
+
+        effects = ParticleSystem.FindObjectsOfType<ParticleSystem>();
+        foreach (ParticleSystem effect in effects)
+        {
+            effect.Stop(true);
+        }
+
+        // Alle Restbälle dieser Runde löschen
+        paintballs = GameObject.FindGameObjectsWithTag("Paintball");
+        foreach (GameObject ball in paintballs)
+        {
+            Destroy(ball);
+        }
     }
 
     public void TakeDamage(int amount, Color bulletColor, Color playerColor)
@@ -122,6 +139,12 @@ public class HealthMP : NetworkBehaviour {
             RpcSetPlayerColors(newColorNo);
         }
 
+        // like a ghost!
+        if(currentHealth == 0)
+        {
+            // transform.Find("PlayerBody").GetComponent<Renderer>().material.color = Color.white;
+        }
+
     }
 
     //Client übernimmt die Änderungen des Servers (ja ich bin auch der Meinung das müsste doch zusammengehen lol)
@@ -148,6 +171,13 @@ public class HealthMP : NetworkBehaviour {
         gameOverTextText = gameOverText.GetComponent<Text>();
         deathEffect.GetComponent<ParticleSystemRenderer>().material = transform.Find("PlayerBody").GetComponent<Renderer>().material;
         Instantiate(deathEffect.gameObject, transform);
+
+        // just a ghost...
+
+        //if (!deathEffect.isPlaying)
+        //{
+        //    transform.Find("PlayerBody").GetComponent<Renderer>().material.color = Color.white;
+        //}
 
         if (isLocalPlayer)
         {

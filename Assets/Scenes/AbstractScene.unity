@@ -791,19 +791,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16583892c12eabc4db7d17661ce51fea, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.63697064
+      value: -0.58255625
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16583892c12eabc4db7d17661ce51fea, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.28755522
+      value: 0.20658529
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16583892c12eabc4db7d17661ce51fea, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.3973133
+      value: 0.461315
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16583892c12eabc4db7d17661ce51fea, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5947458
+      value: 0.6365055
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16583892c12eabc4db7d17661ce51fea, type: 3}
       propertyPath: m_RootOrder
@@ -819,15 +819,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16583892c12eabc4db7d17661ce51fea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -80.46001
+      value: -68.781006
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16583892c12eabc4db7d17661ce51fea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -81.967
+      value: -49.325
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16583892c12eabc4db7d17661ce51fea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 140.117
+      value: 106.76
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16583892c12eabc4db7d17661ce51fea, type: 3}
       propertyPath: m_LocalScale.x
@@ -1817,7 +1817,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1368d37aa292a8b4399f75bd8065b128, type: 2}
+      objectReference: {fileID: 2100000, guid: eecbf1629587d244d8a0520d7c54469f, type: 2}
     - target: {fileID: 23002340894306300, guid: c5881396baf5f7f44b7a5ea0bec9baa6,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -4319,7 +4319,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1818172269}
-  - component: {fileID: 1818172270}
   - component: {fileID: 1818172271}
   - component: {fileID: 1818172272}
   m_Layer: 0
@@ -4347,24 +4346,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1818172270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1818172268}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba5c439bee8774845b6381d3a600ea91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  object1: {fileID: 649799191}
-  object1WantedColor: {fileID: 2100000, guid: 62160a796e02d9844a2593f8e07e6c6d, type: 2}
-  object2: {fileID: 651397880}
-  object2WantedColor: {fileID: 2100000, guid: bf94852539564a4449a29b4e1798fb8a, type: 2}
-  object3: {fileID: 1806891938}
-  object3WantedColor: {fileID: 2100000, guid: 9b1229afe9a12d34b9251cc7629dcdaf, type: 2}
-  door: {fileID: 325714764}
 --- !u!114 &1818172271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4388,7 +4369,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  door: {fileID: 0}
+  door: {fileID: 325714764}
   correctColors: 0
 --- !u!82 &1818172272
 AudioSource:

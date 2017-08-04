@@ -15,6 +15,7 @@ public class MenuScriptLobby : MonoBehaviour {
     // OK, schön ist das nicht, aber immerhin verhält es sich endlich wie gewünscht, dass
     // der Network HUD verschwindet wenn man das MP-Menü verlässt und dann wiederkommt, wenn man wieder reingeht
 	public void Start() {
+        Cursor.visible = true;
         anleitung.SetActive(false);
         networkAnnoyance = FindObjectOfType<NetworkManager>().gameObject;
         networkAnnoyance.SetActive(true);

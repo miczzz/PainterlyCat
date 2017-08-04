@@ -29,6 +29,7 @@ public class HealthMP : NetworkBehaviour {
 
     private void Start()
     {
+        Cursor.visible = false;
         restartMenu = GameObject.FindWithTag("RematchMenu");
         Debug.Log(restartMenu);
         //restartMenuCanvas = restartMenu.GetComponent<Canvas>();

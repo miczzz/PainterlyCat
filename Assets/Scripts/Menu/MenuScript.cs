@@ -10,6 +10,7 @@ public class MenuScript : MonoBehaviour {
 	public Canvas MainMenu;
     
 	public Canvas HelpMenu;
+    public Canvas levelMenu;
     public NetworkManagerHUD networkGUI;
     public NetworkLobbyManager networkLobby;
     public GameObject networkStuff;
@@ -17,7 +18,8 @@ public class MenuScript : MonoBehaviour {
     public void Awake() {
 	
 		HelpMenu.enabled = false;
-        
+        levelMenu.enabled = false;
+
     }
 
     public void Update()
@@ -41,15 +43,35 @@ public class MenuScript : MonoBehaviour {
 	}
 
 	public void ReturnToMainScreen() {
-	
-		HelpMenu.enabled = false;
+        levelMenu.enabled = false;
+        HelpMenu.enabled = false;
 		MainMenu.enabled = true;
 	}
 
 
 	public void LoadLevelOne() {
-		SceneManager.LoadScene (3);
+
+        if (PlayerPrefs.HasKey("LevelProgress"))
+        {
+            MainMenu.enabled = false;
+            levelMenu.enabled = true;
+        }
+        else
+        {
+            SceneManager.LoadScene(3);
+        }
 	}
+
+    public void Weiterspielen()
+    {
+        SceneManager.LoadScene(PlayerPrefs.GetInt("LevelProgress"));       
+    }
+
+    public void VonVornAnfangen()
+    {
+        SceneManager.LoadScene(3);
+        
+    }
 
 	public void LoadLevelMultiplayer() {
         SceneManager.LoadScene (1);

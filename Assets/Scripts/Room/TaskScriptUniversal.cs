@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TaskScriptUniversal : MonoBehaviour {
 
@@ -50,6 +51,16 @@ public class TaskScriptUniversal : MonoBehaviour {
 
                         Destroy(door);
                         audioSource.Play();
+
+                        // Abspeichern, dass man das Level geschafft hat
+                        
+                        int scene = SceneManager.GetActiveScene().buildIndex;
+                        // beim letzten Level skippen
+                        if (!SceneManager.Equals(scene, SceneManager.GetSceneByName("FinalScene")))
+                        {
+                            PlayerPrefs.SetInt("LevelProgress", scene + 1);
+                            PlayerPrefs.Save();
+                        }
                     }
                 }
                 else

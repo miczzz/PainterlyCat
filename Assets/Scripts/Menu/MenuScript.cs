@@ -69,8 +69,8 @@ public class MenuScript : MonoBehaviour {
 
     public void VonVornAnfangen()
     {
-        SceneManager.LoadScene(3);
-        
+		PlayerPrefs.DeleteKey("LevelProgress");
+        SceneManager.LoadScene(3);       
     }
 
 	public void LoadLevelMultiplayer() {

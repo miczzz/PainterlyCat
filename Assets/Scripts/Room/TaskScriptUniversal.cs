@@ -56,10 +56,15 @@ public class TaskScriptUniversal : MonoBehaviour {
                         
                         int scene = SceneManager.GetActiveScene().buildIndex;
                         // beim letzten Level skippen
-                        if (!SceneManager.Equals(scene, SceneManager.GetSceneByName("FinalScene")))
+                        if (!SceneManager.Equals(scene, SceneManager.GetSceneByName("FinalScene").buildIndex))
                         {
                             PlayerPrefs.SetInt("LevelProgress", scene + 1);
+                            Debug.Log("progress saved, level: " + (scene + 1));
                             PlayerPrefs.Save();
+                        }
+                        else
+                        {
+                            Debug.Log("Hello, Last level!");
                         }
                     }
                 }
